@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration in Garden cafe</title>
+	<link rel="stylesheet" type="text/css" href="/login/lr.css">
+	<style>
+		body{
+		  background-image: url("/login/image.jpg");
+		  height: 100%; 
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  margin: 0;
+		}
+		</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Registration</h1>
+		<form>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required>
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+
+			<label for="confirm-password">Confirm Password:</label>
+			<input type="password" id="confirm-password" name="confirm-password" required>
+
+			<input type="submit" value="Register">
+		</form>
+		<p>Already have an account? <a href="login.html">Login here</a>.</p>
+	</div>
+	<script>
+		const form = document.querySelector('form');
+		form.addEventListener('submit', (event) => {
+		  event.preventDefault(); 
+		  const formData = new FormData(form);
+		  const username = formData.get('username');
+		  const email = formData.get('email');
+		  const password = formData.get('password');
+		  const confirm_password = formData.get('confirm-password');
+		  if (password !== confirm_password) {
+			alert('Passwords do not match.');
+			return;
+		  }
+		  else{
+			alert("You are registrired");
+		  }
+		  console.log(`Registering user ${username} with email ${email} and password ${password}`);
+		  form.reset();
+		});
+	  </script>
+</body>
+</html>
